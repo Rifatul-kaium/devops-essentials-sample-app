@@ -1,14 +1,14 @@
 pipeline {
     agent any
     stages {
-        stage('Build') {
+        stage('Rifa_Build') {
             steps {
                 echo 'Running build automation'
                 sh './gradlew build'
                 archiveArtifacts artifacts: 'src/index.html'
             }
         }
-        stage('DeployToStage') {
+        stage('I_Do_DeployToStage') {
             when {
                 branch 'master'
             }
@@ -35,7 +35,7 @@ pipeline {
                 }
             }
         }
-        stage('DeployToProd') {
+        stage('I_Do_DeployToProd') {
             when {
                 branch 'master'
             }
