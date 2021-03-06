@@ -13,6 +13,7 @@ pipeline {
                 branch 'master'
             }
             steps {
+                input 'Does the staging environment look OK?'
                 withCredentials([string(credentialsId: 'cloud_user_pw', variable: 'USERPASS')]) {
                     sshPublisher(
                         failOnError: true,
